@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import './style/App.css';
+import * as React from "react";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Header from './components/header.js';
+import SideMenu from './components/side-menu.js'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <BrowserRouter>
+        <Header/>
+        <section id="body-section">
+          <SideMenu/>
+        <Routes>
+          <Route path="" element={<Home/>}/>
+          <Route path="otherpage" element={<OtherPage/>}/>
+        </Routes>
+        </section>
+      </BrowserRouter>
   );
+}
+
+function Home() {
+  return (
+    <div>
+      Hey
+    </div>
+  )
+}
+
+function OtherPage() {
+  return (
+    <div>
+      Another page here
+    </div>
+  )
 }
 
 export default App;

@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@600;700&family=Varela&display=swap');
+
+$NotoSans: 'Noto Sans', sans-serif;
+$SemiBold: 600;
+
+header {
+  width: calc(100% - 140px);
+  display: flex;
+  height: 76px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 70px;
+  background-color: #F7F8F9;
+  box-shadow: #4f555a1a 0px 4px 12px;
+  position: fixed;
+  z-index: 99;
+  & .sided {
+    display: flex;
+    align-items: center;
+    height: 76px;
+    & h1 {
+      margin-left: 3px;
+      color: #493951;
+    }
+  }
+  & img {
+    width: fit-content;
+    height: fit-content;
+  }
+  & #searchbar {
+    width: 48%;
+    padding: 0px 24px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    background-color: #E3EAEC;
+    border-radius: 60px;
+    justify-content: space-between;
+    & input {
+      background-color: transparent;
+      border: none;
+      font-size: 16px;
+      font-family: 'Varela', sans-serif;
+      width: calc(100% - 48px);
+      &:focus {
+        outline: none;
+      }
+      ::placeholder {
+        color: #49454F;
+      }
+    }
+  }
+}
+
+input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
+input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+h1 {
+  font-size: 31.25px;
+  font-family: $NotoSans;
+  font-weight: $SemiBold;
+}
+
+#body-section {
+  padding-top: 76px;
+}
+
+#side-menu {
+  width: 196px;
+  height: calc(100vh - 76px);
+  position: fixed;
+  background-color: #F5F6F8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: #1623311a 4px 0px 8px;
+}

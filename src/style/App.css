@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@600;700&family=Varela&display=swap");
+header {
+  width: calc(100% - 140px);
+  display: flex;
+  height: 76px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 70px;
+  background-color: #F7F8F9;
+  box-shadow: rgba(79, 85, 90, 0.1019607843) 0px 4px 12px;
+  position: fixed;
+  z-index: 99;
+}
+header .sided {
+  display: flex;
+  align-items: center;
+  height: 76px;
+}
+header .sided h1 {
+  margin-left: 3px;
+  color: #493951;
+}
+header img {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+header #searchbar {
+  width: 48%;
+  padding: 0px 24px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  background-color: #E3EAEC;
+  border-radius: 60px;
+  justify-content: space-between;
+}
+header #searchbar input {
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  font-family: "Varela", sans-serif;
+  width: calc(100% - 48px);
+}
+header #searchbar input:focus {
+  outline: none;
+}
+header #searchbar input ::-moz-placeholder {
+  color: #49454F;
+}
+header #searchbar input :-ms-input-placeholder {
+  color: #49454F;
+}
+header #searchbar input ::placeholder {
+  color: #49454F;
+}
+
+input[type=search]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+input[type=search]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration {
+  display: none;
+}
+
+h1 {
+  font-size: 31.25px;
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 600;
+}
+
+#body-section {
+  padding-top: 76px;
+}
+
+#side-menu {
+  width: 196px;
+  height: calc(100vh - 76px);
+  position: fixed;
+  background-color: #F5F6F8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: rgba(22, 35, 49, 0.1019607843) 4px 0px 8px;
+}/*# sourceMappingURL=App.css.map */
