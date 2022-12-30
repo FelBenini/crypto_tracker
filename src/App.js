@@ -3,6 +3,7 @@ import * as React from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/header.js';
 import SideMenu from './components/side-menu.js'
+import Homepage from './pages/homepage.js'
 
 function App() {
   return (
@@ -11,20 +12,12 @@ function App() {
         <SideMenu/>
         <section id="body-section">
         <Routes>
-          <Route path="" element={<Home/>}/>
+          <Route path="" element={<Homepage/>}/>
           <Route path="otherpage" element={<OtherPage/>}/>
         </Routes>
         </section>
       </BrowserRouter>
   );
-}
-
-function Home() {
-  return (
-    <div>
-      Hey
-    </div>
-  )
 }
 
 function OtherPage() {

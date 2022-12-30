@@ -4,17 +4,26 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { CurrencyState } from '../currencyContext.js'
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 function SideMenu() {
     return (
         <div id="side-menu">
-            <Formselect />
-            <Divider />
+            <Divider/>
+            <h3>Currency</h3>
+            <FormSelect />
+            <Divider/>
+            <h3>Order by</h3>
+            <RadioMenu/>
+            <Divider/>
+            <p>Made by<br/>Felipe Benini</p>
         </div>
     )
 }
 
-function Formselect() {
+function FormSelect() {
     const { currency, setCurrency } = CurrencyState();
     return (
         <div>
@@ -30,6 +39,22 @@ function Formselect() {
                 </Select>
             </FormControl>
         </div>
+    )
+}
+
+function RadioMenu() {
+    return (
+        <FormControl>
+            <RadioGroup
+                aria-labelledby="demo-radio-buttons-group-label"
+                name="radio-buttons-group"
+                defaultValue={"trending"}
+            >
+                <FormControlLabel value="trending" control={<Radio />} label="Trending coins" />
+                <FormControlLabel value="price" control={<Radio />} label="Highest price" />
+                <FormControlLabel value="name" control={<Radio />} label="Name (A-Z)" />
+            </RadioGroup>
+        </FormControl>
     )
 }
 
