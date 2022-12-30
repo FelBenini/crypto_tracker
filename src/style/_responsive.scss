@@ -1,0 +1,18 @@
+@media only screen and (max-width: 600px) {
+    header {
+        height: 72px;
+        display: flex;
+        justify-content: space-between;
+        width: calc(100%-48px);
+        padding: 0px 24px;
+        & #searchbar {
+            display: none;
+        }
+        & #menu-button {
+            display: flex;
+        }
+        & #github-link, #dark-switcher {
+            display: none;
+        } 
+    }
+}

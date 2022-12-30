@@ -25,17 +25,21 @@ class Header extends React.Component {
                     </IconButton>
                 </form>
 
-                <IconButton color="primary" size="medium">
+                <IconButton color="primary" size="medium" id="dark-switcher">
                     <input hidden accept="image/*" />
                     <img src="img/theme-mode-dark.svg" alt="dark theme switcher" />
                 </IconButton>
 
                 <Link to="./otherpage">
-                    <IconButton color="primary" size="medium">
+                    <IconButton color="primary" size="medium" id="github-link">
                         <input hidden accept="image/*" />
                         <img src="img/github-icon.svg" alt="github code button link" />
                     </IconButton>
                 </Link>
+                <IconButton color="primary" id="menu-button" size="medium">
+                    <input hidden accept="image/*" />
+                    <img src="img/menu-mobile.svg" alt="Menu button" />
+                </IconButton>
             </header>
         );
     }
