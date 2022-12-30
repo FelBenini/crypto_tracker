@@ -30,13 +30,17 @@ header img {
 }
 header #searchbar {
   width: 48%;
-  padding: 0px 24px;
+  padding: 0px 16px;
   height: 44px;
   display: flex;
   align-items: center;
   background-color: #E3EAEC;
   border-radius: 60px;
   justify-content: space-between;
+  transition: all ease 0.3s;
+}
+header #searchbar:focus-within {
+  outline: 1.6px solid rgba(22, 35, 49, 0.2666666667);
 }
 header #searchbar input {
   background-color: transparent;
@@ -85,9 +89,11 @@ h1 {
 
 #body-section {
   padding-top: 76px;
+  padding-left: 196px;
 }
 
 #side-menu {
+  padding-top: 76px;
   width: 196px;
   height: calc(100vh - 76px);
   position: fixed;
@@ -97,4 +103,8 @@ h1 {
   align-items: center;
   justify-content: space-around;
   box-shadow: rgba(22, 35, 49, 0.1019607843) 4px 0px 8px;
+}
+
+a {
+  text-decoration: none;
 }/*# sourceMappingURL=App.css.map */

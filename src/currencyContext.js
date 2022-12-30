@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react'
 
-const CurrencyInitial = createContext();
+const Currency = createContext();
 
 const CurrencyContext = ({ children }) => {
     const [currency, setCurrency] = useState("USD")
@@ -11,14 +11,14 @@ const CurrencyContext = ({ children }) => {
         else if (currency === "EUR") setCurrencyPrefix("€");
     }, [currency])
   return (
-    <CurrencyInitial.Provider value={{ currency, setCurrency, currencyPrefix}}>
+    <Currency.Provider value={{ currency, setCurrency, currencyPrefix}}>
         {children}
-    </CurrencyInitial.Provider>
+    </Currency.Provider>
   )
 }
 
 export const CurrencyState = () => {
-    return React.useContext(CurrencyInitial)
+    return React.useContext(Currency)
 }
 
 export default CurrencyContext

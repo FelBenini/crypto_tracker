@@ -1,15 +1,23 @@
 import React from 'react'
-import MenuItem from '@mui/material/MenuItem';
+import Divider from '@mui/material/Divider';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import Divider from '@mui/material/Divider';
+import MenuItem from '@mui/material/MenuItem';
 import { CurrencyState } from '../currencyContext.js'
 
 function SideMenu() {
-    const { currency, setCurrency } = CurrencyState();
-
     return (
         <div id="side-menu">
+            <Formselect />
+            <Divider />
+        </div>
+    )
+}
+
+function Formselect() {
+    const { currency, setCurrency } = CurrencyState();
+    return (
+        <div>
             <FormControl color="secondary" sx={{ m: 1, minWidth: 120 }}>
                 <Select
                     value={currency}
@@ -21,10 +29,10 @@ function SideMenu() {
                     <MenuItem value={"EUR"}>EUR</MenuItem>
                 </Select>
             </FormControl>
-            <Divider/>
         </div>
     )
 }
+
 
 
 export default SideMenu

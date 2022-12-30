@@ -29,13 +29,17 @@ header {
   }
   & #searchbar {
     width: 48%;
-    padding: 0px 24px;
+    padding: 0px 16px;
     height: 44px;
     display: flex;
     align-items: center;
     background-color: #E3EAEC;
     border-radius: 60px;
     justify-content: space-between;
+    transition: all ease 0.3s;
+    &:focus-within {
+      outline: 1.6px solid #16233144;
+    }
     & input {
       background-color: transparent;
       border: none;
@@ -67,9 +71,11 @@ h1 {
 
 #body-section {
   padding-top: 76px;
+  padding-left: 196px;
 }
 
 #side-menu {
+  padding-top: 76px;
   width: 196px;
   height: calc(100vh - 76px);
   position: fixed;
@@ -79,4 +85,8 @@ h1 {
   align-items: center;
   justify-content: space-around;
   box-shadow: #1623311a 4px 0px 8px;
+}
+
+a {
+  text-decoration: none;
 }

@@ -8,8 +8,8 @@ function App() {
   return (
       <BrowserRouter>
         <Header/>
+        <SideMenu/>
         <section id="body-section">
-          <SideMenu/>
         <Routes>
           <Route path="" element={<Home/>}/>
           <Route path="otherpage" element={<OtherPage/>}/>
