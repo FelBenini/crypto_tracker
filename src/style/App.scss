@@ -87,8 +87,6 @@ h1 {
 #body-section {
   padding-top: 76px;
   padding-left: 196px;
-  overflow: scroll;
-  width: calc(100% - 196px);
 }
 
 #side-menu {
@@ -140,6 +138,7 @@ h1 {
     display: flex;
     height: 72px;
     align-items: center;
+    width: 30%;
     & h4 {
       margin-left: 16px;
     }

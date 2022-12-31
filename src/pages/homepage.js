@@ -25,7 +25,7 @@ function Homepage() {
                 <h4>{coin.name}</h4>
                 </span>
                 <span>
-                    <h5>{coin.price_change_percentage_24h + "%"}</h5>
+                    <h5>{coin.price_change_percentage_24h.toFixed(2) + "%"}</h5>
                 </span>
                 <span id="price-crypto">
                 <p>Price:</p>
