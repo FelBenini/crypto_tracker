@@ -15,7 +15,10 @@
             height: 36px;
         }
 
-        & img {
+        & .variation-24h img {
+            filter: invert(1);
+        }
+        & .coin-image {
             background-color: #e3eaec;
             border-radius: 100%;
             padding: 2px;
@@ -26,7 +29,7 @@
             font-weight: $Bold;
         }
 
-        & #price-crypto {
+        & .price-crypto {
             display: flex;
             width: 100%;
             justify-content: space-between;
@@ -49,7 +52,7 @@
     #coins-display {
         width: calc(100% - 12px);
 
-        & #price-crypto {
+        & .price-crypto {
             width: fit-content;
         }
     }
@@ -101,7 +104,7 @@
             width: 40px;
         }
 
-        & #price-crypto p{
+        & .price-crypto p{
             display: none;
         }
     }

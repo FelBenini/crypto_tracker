@@ -3,40 +3,64 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { CurrencyState } from '../currencyContext.js'
 import Pagination from '@mui/material/Pagination';
-import Container from '@mui/material/Container';
 
 function Homepage() {
+  const [page, setPage] = React.useState(1);
+  const handlePageChange = (event, value) => {
+    setPage(value);
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  };
     const { currency, currencyPrefix} = CurrencyState()
     const [cryptoCoins, setCryptoCoins] = useState([])
-    const fetchCoins = async (bid) => {
-        const { data } = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${bid}&order=market_cap_desc&per_page=100&page=1&sparkline=false`)
+    const fetchCoins = async (bid, currentpage) => {
+        const { data } = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${bid}&order=market_cap_desc&per_page=25&page=${currentpage}&sparkline=false`)
 
         setCryptoCoins(data)
     }
     useEffect(() => {
-        fetchCoins(currency)
-    }, [currency])
+        fetchCoins(currency, page)
+    }, [currency, page])
     
     const cryptoMap = cryptoCoins.map((coin) => {
+        if(coin.price_change_percentage_24h > 0) {
         return (
             <div className="coin-listed">
                 <span>
-                <img src={coin?.image} alt={coin}/>
+                <img src={coin?.image} alt={coin} className="coin-image"/>
                 <h4>{coin.name}</h4>
                 </span>
-                <span>
-                    <h5>{coin.price_change_percentage_24h.toFixed(2) + "%"}</h5>
+                <span class="variation-24h">
+                    <img src="img/variation-positive.svg" alt="trending down"/><h5>{coin.price_change_percentage_24h.toFixed(2) + "%"}</h5>
                 </span>
-                <span id="price-crypto">
+                <span className="price-crypto">
                 <p>Price:</p>
                 <h5>{currencyPrefix}{coin.current_price.toFixed(2)}</h5>
                 </span>
             </div>
-        )
+        )} else if(coin.price_change_percentage_24h < 0) {
+            return (
+                <div className="coin-listed">
+                <span>
+                <img src={coin.image} alt={coin} className="coin-image"/>
+                <h4>{coin.name}</h4>
+                </span>
+                <span class="variation-24h">
+                    <img src="img/variation-negative.svg" alt="trending down"/><h5>{coin.price_change_percentage_24h.toFixed(2) + "%"}</h5>
+                </span>
+                <span className="price-crypto">
+                <p>Price:</p>
+                <h5>{currencyPrefix}{coin.current_price.toFixed(2)}</h5>
+                </span>
+            </div>
+            )
+        }
     })
   return (
     <div id="coins-display">
         {cryptoMap}
+        <div id="pagination">
+        <Pagination count={5} page={page} onChange={handlePageChange} shape="rounded"/>
+        </div>
     </div>
   )
 }

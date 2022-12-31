@@ -129,7 +129,10 @@ h1 {
   padding-left: 32px;
   padding-right: 32px;
   border-radius: 12px;
-  & #price-crypto {
+    & .variation-24h img{
+    margin-right: 4px;
+  }
+  & .price-crypto {
     width: 240px;
     display: flex;
     justify-content: space-between;
@@ -143,7 +146,7 @@ h1 {
       margin-left: 16px;
     }
   }
-  & img {
+  & .coin-image {
     height: 40px;
   }
 }
@@ -160,17 +163,21 @@ h1 {
   box-shadow: rgba(14, 13, 13, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   & span {
     height: 36px;
+    display: flex;
   }
-  & img {
+  & .coin-image {
     background-color: #E3EAEC;
     border-radius: 100%;
     padding: 2px;
+  }
+  & .variation-24h img{
+    filter: invert(1);
   }
   & h4 {
     font-size: 20px;
     font-weight: $Bold;
   }
-  & #price-crypto {
+  & .price-crypto {
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -182,6 +189,18 @@ h1 {
     }
   }
 }
+
+  #coins-display #pagination {
+    align-self: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    justify-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+  }
 
 a {
   text-decoration: none;
