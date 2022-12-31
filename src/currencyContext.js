@@ -3,12 +3,15 @@ import React, { createContext, useEffect, useState } from 'react'
 const Currency = createContext();
 
 const CurrencyContext = ({ children }) => {
-    const [currency, setCurrency] = useState("USD")
+    const [currency, setCurrency] = useState("usd")
     const [currencyPrefix, setCurrencyPrefix] = useState("$")
     useEffect(() => {
-        if (currency === "USD") setCurrencyPrefix("$");
-        else if (currency === "BRL") setCurrencyPrefix("R$");
-        else if (currency === "EUR") setCurrencyPrefix("€");
+        if (currency === "usd") {
+          setCurrencyPrefix("$");}
+        else if (currency === "brl") {
+          setCurrencyPrefix("R$");}
+        else if (currency === "eur") {
+          setCurrencyPrefix("€");}
     }, [currency])
   return (
     <Currency.Provider value={{ currency, setCurrency, currencyPrefix}}>

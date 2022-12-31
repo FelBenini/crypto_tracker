@@ -33,9 +33,9 @@ function FormSelect() {
                     id="demo-simple-select"
                     labelId="demo-simple-select-label"
                     onChange={(e) => setCurrency(e.target.value)}>
-                    <MenuItem value={"USD"}>USD</MenuItem>
-                    <MenuItem value={"BRL"}>BRL</MenuItem>
-                    <MenuItem value={"EUR"}>EUR</MenuItem>
+                    <MenuItem value={"usd"}>USD</MenuItem>
+                    <MenuItem value={"brl"}>BRL</MenuItem>
+                    <MenuItem value={"eur"}>EUR</MenuItem>
                 </Select>
             </FormControl>
         </div>
