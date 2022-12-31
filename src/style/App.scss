@@ -149,7 +149,7 @@ h1 {
   }
 }
 
-/*.coin-listed:nth-child(1), .coin-listed:nth-child(2), .coin-listed:nth-child(3) {
+.coin-listed:nth-child(1), .coin-listed:nth-child(2), .coin-listed:nth-child(3) {
   width: 200px;
   height: 200px;
   padding: 16px;
@@ -182,7 +182,7 @@ h1 {
       color: #ffffffe7;
     }
   }
-}*/
+}
 
 a {
   text-decoration: none;
