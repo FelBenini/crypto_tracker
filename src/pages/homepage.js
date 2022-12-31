@@ -9,7 +9,7 @@ function Homepage() {
     const { currency, currencyPrefix} = CurrencyState()
     const [cryptoCoins, setCryptoCoins] = useState([])
     const fetchCoins = async (bid) => {
-        const { data } = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${bid}&order=market_cap_desc&per_page=1250&page=1&sparkline=false`)
+        const { data } = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${bid}&order=market_cap_desc&per_page=100&page=1&sparkline=false`)
 
         setCryptoCoins(data)
     }
