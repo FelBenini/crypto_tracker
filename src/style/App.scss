@@ -4,6 +4,16 @@ $NotoSans: 'Noto Sans', sans-serif;
 $SemiBold: 600;
 $Bold: 700;
 
+h5 {
+  font-family: $NotoSans;
+  font-weight: $Bold;
+  font-size: 16px;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
 h3 {
   font-size: 20px;
   font-weight: $Bold;
@@ -81,6 +91,8 @@ h1 {
 #body-section {
   padding-top: 76px;
   padding-left: 196px;
+  overflow: scroll;
+  width: calc(100% - 196px);
 }
 
 #side-menu {
@@ -101,17 +113,77 @@ h1 {
   }
 }
 
+#coins-display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 88%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .coin-listed {
   display: flex;
   flex-direction: row;
   height: 72px;
   align-items: center;
+  width: 100%;
   justify-content: space-between;
-  width: 88%;
-  margin-left: auto;
-  margin-right: auto;
+  background-color: #f3f3f3;
+  margin-top: 16px;
+  box-shadow: #56505936 0px 2px 8px;
+  padding-left: 32px;
+  padding-right: 32px;
+  border-radius: 12px;
+  & #price-crypto {
+    width: 240px;
+    display: flex;
+    justify-content: space-between;
+  }
+  & span {
+    display: flex;
+    height: 72px;
+    align-items: center;
+    & h4 {
+      margin-left: 16px;
+    }
+  }
   & img {
     height: 40px;
+  }
+}
+
+.coin-listed:nth-child(1), .coin-listed:nth-child(2), .coin-listed:nth-child(3), .coin-listed:nth-child(4) {
+  width: 200px;
+  height: 200px;
+  padding: 16px;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  align-items: flex-start;
+  background-image: linear-gradient(to bottom right, #CD1499, #560BAD);
+  & span {
+    height: 36px;
+  }
+  & img {
+    background-color: #E3EAEC;
+    border-radius: 100%;
+    padding: 2px;
+  }
+  & h4 {
+    font-size: 20px;
+    font-weight: $Bold;
+  }
+  & #price-crypto {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 72px;
+    & p {
+      color: #ffffffe7;
+    }
   }
 }
 
