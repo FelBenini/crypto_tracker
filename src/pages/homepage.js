@@ -4,8 +4,12 @@ import axios from 'axios';
 import { CurrencyState } from '../currencyContext.js'
 import Pagination from '@mui/material/Pagination';
 
+export function formattedNumber(num) {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 function Homepage() {
-  const [page, setPage] = React.useState(1);
+  const [page, setPage] = useState(1);
   const handlePageChange = (event, value) => {
     setPage(value);
     window.scrollTo({top: 0, behavior: 'smooth'});
@@ -29,12 +33,12 @@ function Homepage() {
                 <img src={coin?.image} alt={coin} className="coin-image"/>
                 <h4>{coin.name}</h4>
                 </span>
-                <span class="variation-24h">
+                <span className="variation-24h">
                     <img src="img/variation-positive.svg" alt="trending down"/><h5>{coin.price_change_percentage_24h.toFixed(2) + "%"}</h5>
                 </span>
                 <span className="price-crypto">
                 <p>Price:</p>
-                <h5>{currencyPrefix}{coin.current_price.toFixed(2)}</h5>
+                <h5>{currencyPrefix}{formattedNumber(coin.current_price.toFixed(2))}</h5>
                 </span>
             </div>
         )} else if(coin.price_change_percentage_24h < 0) {
@@ -44,12 +48,12 @@ function Homepage() {
                 <img src={coin.image} alt={coin} className="coin-image"/>
                 <h4>{coin.name}</h4>
                 </span>
-                <span class="variation-24h">
+                <span className="variation-24h">
                     <img src="img/variation-negative.svg" alt="trending down"/><h5>{coin.price_change_percentage_24h.toFixed(2) + "%"}</h5>
                 </span>
                 <span className="price-crypto">
                 <p>Price:</p>
-                <h5>{currencyPrefix}{coin.current_price.toFixed(2)}</h5>
+                <h5>{currencyPrefix}{formattedNumber(coin.current_price.toFixed(2))}</h5>
                 </span>
             </div>
             )
@@ -59,7 +63,7 @@ function Homepage() {
     <div id="coins-display">
         {cryptoMap}
         <div id="pagination">
-        <Pagination count={5} page={page} onChange={handlePageChange} shape="rounded"/>
+        <Pagination count={50} page={page} onChange={handlePageChange} shape="rounded"/>
         </div>
     </div>
   )

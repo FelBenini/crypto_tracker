@@ -5,6 +5,7 @@
         padding: 16px;
         flex-direction: column;
         justify-content: space-between;
+        margin-bottom: 48px;
         color: white;
         align-items: flex-start;
         background-image: linear-gradient(to bottom right, #cd1499, #560bad);
@@ -13,6 +14,7 @@
 
         & span {
             height: 36px;
+            width: 100%;
         }
 
         & .variation-24h img {
@@ -39,6 +41,7 @@
 
             & p {
                 color: #ffffffe7;
+                display: flex;
             }
         }
     }
