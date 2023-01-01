@@ -60,11 +60,18 @@ function Homepage() {
         }
     })
   return (
+    <div>
+        <div className="coin-label">
+            <span>Name</span>
+            <span className="variation-24h">Variation 24h</span>
+            <span className='price-crypto'>Price</span>
+        </div>
     <div id="coins-display">
         {cryptoMap}
         <div id="pagination">
         <Pagination count={50} page={page} onChange={handlePageChange} shape="rounded"/>
         </div>
+    </div>
     </div>
   )
 }
