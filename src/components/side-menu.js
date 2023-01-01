@@ -24,7 +24,7 @@ function SideMenu() {
     )
 }
 
-function FormSelect() {
+export function FormSelect() {
     const { currency, setCurrency } = CurrencyState();
     return (
         <div>
@@ -43,7 +43,7 @@ function FormSelect() {
     )
 }
 
-function RadioMenu() {
+export function RadioMenu() {
     const { order, setOrder } = OrderState();
     return (
         <FormControl>

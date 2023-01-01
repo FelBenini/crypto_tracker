@@ -5,12 +5,14 @@ import Header from './components/header.js';
 import SideMenu from './components/side-menu.js'
 import Homepage from './pages/homepage.js'
 import SearchPage from './pages/searchPage';
+import MobileMenu from './components/mobile-menu';
 
 function App() {
   return (
       <BrowserRouter>
         <Header/>
         <SideMenu/>
+        <MobileMenu/>
         <section id="body-section">
         <Routes>
           <Route path="" element={<Homepage/>}/>

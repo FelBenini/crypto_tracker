@@ -273,8 +273,8 @@ h1 {
   background-color: #f3f3f3;
   margin-top: 16px;
   box-shadow: rgba(86, 80, 89, 0.2117647059) 0px 2px 8px;
-  padding-left: 32px;
-  padding-right: 32px;
+  padding-left: 4%;
+  padding-right: 4%;
   border-radius: 12px;
 }
 #search-section .coin-listed .variation-24h img {
@@ -299,6 +299,37 @@ h1 {
 }
 #search-section .coin-listed .coin-image {
   height: 40px;
+}
+
+#mobile-menu {
+  width: 80%;
+  margin-left: 20%;
+  height: 90vh;
+  padding-top: 2.5vh;
+  padding-bottom: 5vh;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  justify-self: right;
+  transform: translateX(100%);
+  transition: all ease 0.25s;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  z-index: 99;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f5f6f8;
+}
+#mobile-menu #searchbar {
+  background-color: #e3eaec;
+  padding: 8px 12px;
+  border-radius: 100px;
+}
+#mobile-menu #searchbar input {
+  background-color: transparent;
+  border: none;
+}
+#mobile-menu #searchbar input:focus {
+  outline: none;
 }
 
 a {
