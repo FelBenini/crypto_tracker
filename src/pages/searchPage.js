@@ -3,16 +3,14 @@ import { CurrencyState } from '../currencyContext';
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import { formattedNumber } from './homepage';
-import { OrderState } from '../orderContext.js';
 
 function SearchPage() {
     const { query } = useParams()
-    const { order } = OrderState()
     const { currency, currencyPrefix} = CurrencyState()
     const [cryptoCoins, setCryptoCoins] = useState([])
     const filteredObjects = cryptoCoins.filter(item => item.name.toLowerCase().indexOf(query.toLowerCase()) === 0);
-    const fetchCoins = async (bid, order) => {
-        const { data } = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${bid}&order=${order}&per_page=1250&page=1&sparkline=false`)
+    const fetchCoins = async (bid) => {
+        const { data } = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${bid}&order=market_cap_desc&per_page=1250&page=1&sparkline=false`)
 
         setCryptoCoins(data)
     }
@@ -52,10 +50,10 @@ function SearchPage() {
       ;
   });
       useEffect(() => {
-        fetchCoins(currency, order)
-    }, [currency, order])
+        fetchCoins(currency)
+    }, [currency])
     const headerStyle = {
-        marginTop: '20px',
+        marginTop: '12px',
         textAlign: 'center'
     }
     return (
