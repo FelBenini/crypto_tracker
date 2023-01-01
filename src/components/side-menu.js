@@ -7,6 +7,7 @@ import { CurrencyState } from '../currencyContext.js'
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import { OrderState } from '../orderContext.js';
 
 function SideMenu() {
     return (
@@ -43,16 +44,18 @@ function FormSelect() {
 }
 
 function RadioMenu() {
+    const { order, setOrder } = OrderState();
     return (
         <FormControl>
             <RadioGroup
                 aria-labelledby="demo-radio-buttons-group-label"
                 name="radio-buttons-group"
-                defaultValue={"trending"}
+                defaultValue={order}
+                onChange={(e) => setOrder(e.target.value)}
             >
-                <FormControlLabel value="trending" control={<Radio />} label="Trending coins" />
-                <FormControlLabel value="price" control={<Radio />} label="Highest price" />
-                <FormControlLabel value="name" control={<Radio />} label="Name (A-Z)" />
+                <FormControlLabel value="market_cap_desc" control={<Radio />} label="Trending coins" />
+                <FormControlLabel value="price_desc" control={<Radio />} label="Highest price" />
+                <FormControlLabel value="id_asc" control={<Radio />} label="Name (A-Z)" />
             </RadioGroup>
         </FormControl>
     )

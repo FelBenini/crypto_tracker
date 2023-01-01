@@ -4,6 +4,7 @@ import './style/index.css';
 import App from './App';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CurrencyContext from './currencyContext.js';
+import OrderContext from './orderContext';
 
 const theme = createTheme({
   palette: {
@@ -20,9 +21,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
+      <OrderContext>
       <CurrencyContext>
         <App />
       </CurrencyContext>
+      </OrderContext>
     </ThemeProvider>
   </React.StrictMode>
 );

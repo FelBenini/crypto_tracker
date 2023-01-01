@@ -3,14 +3,16 @@ import { CurrencyState } from '../currencyContext';
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import { formattedNumber } from './homepage';
+import { OrderState } from '../orderContext.js';
 
 function SearchPage() {
     const { query } = useParams()
+    const { order } = OrderState()
     const { currency, currencyPrefix} = CurrencyState()
     const [cryptoCoins, setCryptoCoins] = useState([])
     const filteredObjects = cryptoCoins.filter(item => item.name.toLowerCase().indexOf(query.toLowerCase()) === 0);
-    const fetchCoins = async (bid) => {
-        const { data } = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${bid}&order=market_cap_desc&per_page=1250&page=1&sparkline=false`)
+    const fetchCoins = async (bid, order) => {
+        const { data } = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${bid}&order=${order}&per_page=1250&page=1&sparkline=false`)
 
         setCryptoCoins(data)
     }
@@ -50,9 +52,15 @@ function SearchPage() {
       ;
   });
       useEffect(() => {
-        fetchCoins(currency)
-    }, [currency])
+        fetchCoins(currency, order)
+    }, [currency, order])
+    const headerStyle = {
+        marginTop: '20px',
+        textAlign: 'center'
+    }
     return (
+        <section>
+            <h2 style={headerStyle}>Showing results for {query}</h2>
         <div id="search-section">
             <div className="coin-label">
                 <span>Name</span>
@@ -61,6 +69,7 @@ function SearchPage() {
             </div>
             {mappedObjects}
         </div>
+        </section>
 
     )
 }
