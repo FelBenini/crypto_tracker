@@ -37,6 +37,7 @@ export function FormSelect() {
                     <MenuItem value={"usd"}>USD</MenuItem>
                     <MenuItem value={"brl"}>BRL</MenuItem>
                     <MenuItem value={"eur"}>EUR</MenuItem>
+                    <MenuItem value={"gbp"}>GBP</MenuItem>
                 </Select>
             </FormControl>
         </div>
