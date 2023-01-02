@@ -176,9 +176,8 @@ h1 {
   }
 }
 #coins-display .coin-listed:nth-child(1),
-#coins-display .coin-listed:nth-child(2),
-#coins-display .coin-listed:nth-child(3) {
-  width: 200px;
+#coins-display .coin-listed:nth-child(2) {
+  width: 40%;
   height: 200px;
   padding: 16px;
   margin-bottom: 48px;

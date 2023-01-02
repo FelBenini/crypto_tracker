@@ -184,9 +184,8 @@ h1 {
 }
 
 #coins-display .coin-listed:nth-child(1),
-#coins-display .coin-listed:nth-child(2),
-#coins-display .coin-listed:nth-child(3) {
-  width: 200px;
+#coins-display .coin-listed:nth-child(2) {
+  width: 40%;
   height: 200px;
   padding: 16px;
   margin-bottom: 48px;
@@ -198,33 +197,28 @@ h1 {
   box-shadow: rgba(14, 13, 13, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 #coins-display .coin-listed:nth-child(1) span,
-#coins-display .coin-listed:nth-child(2) span,
-#coins-display .coin-listed:nth-child(3) span {
+#coins-display .coin-listed:nth-child(2) span {
   height: 36px;
   width: 100%;
   display: flex;
 }
 #coins-display .coin-listed:nth-child(1) .coin-image,
-#coins-display .coin-listed:nth-child(2) .coin-image,
-#coins-display .coin-listed:nth-child(3) .coin-image {
+#coins-display .coin-listed:nth-child(2) .coin-image {
   background-color: #e3eaec;
   border-radius: 100%;
   padding: 2px;
 }
 #coins-display .coin-listed:nth-child(1) .variation-24h img,
-#coins-display .coin-listed:nth-child(2) .variation-24h img,
-#coins-display .coin-listed:nth-child(3) .variation-24h img {
+#coins-display .coin-listed:nth-child(2) .variation-24h img {
   filter: invert(1);
 }
 #coins-display .coin-listed:nth-child(1) h4,
-#coins-display .coin-listed:nth-child(2) h4,
-#coins-display .coin-listed:nth-child(3) h4 {
+#coins-display .coin-listed:nth-child(2) h4 {
   font-size: 20px;
   font-weight: 700;
 }
 #coins-display .coin-listed:nth-child(1) .price-crypto,
-#coins-display .coin-listed:nth-child(2) .price-crypto,
-#coins-display .coin-listed:nth-child(3) .price-crypto {
+#coins-display .coin-listed:nth-child(2) .price-crypto {
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -233,8 +227,7 @@ h1 {
   height: 72px;
 }
 #coins-display .coin-listed:nth-child(1) .price-crypto p,
-#coins-display .coin-listed:nth-child(2) .price-crypto p,
-#coins-display .coin-listed:nth-child(3) .price-crypto p {
+#coins-display .coin-listed:nth-child(2) .price-crypto p {
   color: rgba(255, 255, 255, 0.9058823529);
   display: flex;
 }
@@ -483,5 +476,62 @@ header #dark-switcher {
 #coins-display .coin-listed:nth-child(2) .price-crypto p,
 #coins-display .coin-listed:nth-child(3) .price-crypto p {
     display: none;
+  }
+}
+@media only screen and (min-width: 930px) {
+  #coins-display .coin-listed:nth-child(1),
+#coins-display .coin-listed:nth-child(2),
+#coins-display .coin-listed:nth-child(3) {
+    width: 200px;
+    height: 200px;
+    padding: 16px;
+    margin-bottom: 48px;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    align-items: flex-start;
+    background-image: linear-gradient(to bottom right, #cd1499, #560bad);
+    box-shadow: rgba(14, 13, 13, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  }
+  #coins-display .coin-listed:nth-child(1) span,
+#coins-display .coin-listed:nth-child(2) span,
+#coins-display .coin-listed:nth-child(3) span {
+    height: 36px;
+    width: 100%;
+    display: flex;
+  }
+  #coins-display .coin-listed:nth-child(1) .coin-image,
+#coins-display .coin-listed:nth-child(2) .coin-image,
+#coins-display .coin-listed:nth-child(3) .coin-image {
+    background-color: #e3eaec;
+    border-radius: 100%;
+    padding: 2px;
+  }
+  #coins-display .coin-listed:nth-child(1) .variation-24h img,
+#coins-display .coin-listed:nth-child(2) .variation-24h img,
+#coins-display .coin-listed:nth-child(3) .variation-24h img {
+    filter: invert(1);
+  }
+  #coins-display .coin-listed:nth-child(1) h4,
+#coins-display .coin-listed:nth-child(2) h4,
+#coins-display .coin-listed:nth-child(3) h4 {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  #coins-display .coin-listed:nth-child(1) .price-crypto,
+#coins-display .coin-listed:nth-child(2) .price-crypto,
+#coins-display .coin-listed:nth-child(3) .price-crypto {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 72px;
+  }
+  #coins-display .coin-listed:nth-child(1) .price-crypto p,
+#coins-display .coin-listed:nth-child(2) .price-crypto p,
+#coins-display .coin-listed:nth-child(3) .price-crypto p {
+    color: rgba(255, 255, 255, 0.9058823529);
+    display: flex;
   }
 }/*# sourceMappingURL=App.css.map */
