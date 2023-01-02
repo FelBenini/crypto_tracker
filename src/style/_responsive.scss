@@ -20,6 +20,7 @@
         & .variation-24h img {
             filter: invert(1);
         }
+
         & .coin-image {
             background-color: #e3eaec;
             border-radius: 100%;
@@ -61,7 +62,7 @@
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 600px) {
     header {
         height: 72px;
         display: flex;
@@ -83,6 +84,12 @@
         }
     }
 
+    .coin-label {
+        transform: none;
+        height: 32px;
+        align-items: center;
+    }
+
     #side-menu {
         display: none;
     }
@@ -92,22 +99,21 @@
         width: 100%;
     }
 
-    .coin-listed {
+    #coins-display .coin-listed {
         padding-left: 8px;
         padding-right: 8px;
-        width: 100%;
-
+        width: 97%;
         & img {
             height: 32px;
         }
 
-        & span h4{
-            margin-left: 10px;
+        & span h4 {
+            margin-left: 6px;
             font-size: 16px;
             width: 40px;
         }
 
-        & .price-crypto p{
+        & .price-crypto p {
             display: none;
         }
     }
@@ -115,5 +121,27 @@
     #coins-display {
         width: 98%;
         justify-content: center;
+        margin-top: -10px;
+    }
+
+    #coins-display .coin-listed:nth-child(1),
+    #coins-display .coin-listed:nth-child(2),
+    #coins-display .coin-listed:nth-child(3) {
+        width: 97%;
+        height: 64px;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        margin-bottom: -6px;
+        & h4 {
+            font-size: 16px;
+        }
+        & .price-crypto {
+            height: fit-content;
+            width: fit-content;
+            & p {
+                display: none;
+            }
+        }
     }
 }

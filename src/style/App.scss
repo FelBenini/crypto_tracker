@@ -276,6 +276,7 @@ h1 {
     }
     & .coin-image {
       height: 40px;
+      width: 40px;
     }
   }
 }
@@ -283,15 +284,15 @@ h1 {
 #mobile-menu {
   width: 80%;
   margin-left: 20%;
-  height: 85vh;
+  height: 75vh;
   padding-top: 2.5vh;
-  padding-bottom: 12.5vh;
+  padding-bottom: 22.5vh;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   justify-self: right;
   transform: translateX(100%);
   transition: all ease 0.25s;
   position: fixed;
-  display: flex;
+  display: none;
   flex-direction: column;
   z-index: 99;
   align-items: center;
@@ -301,6 +302,9 @@ h1 {
     background-color: #e3eaec;
     padding: 8px 12px;
     border-radius: 100px;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
     & input {
       background-color: transparent;
       border: none;

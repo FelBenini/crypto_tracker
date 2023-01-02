@@ -42,12 +42,12 @@ export function SearchBar() {
     let navigate = useNavigate()
     function handleSubmission(e) {
         e.preventDefault();
-        navigate(`./search/${document.getElementById('searchQuery').value}`)
+        navigate(`./search/${e.target[0].value}`)
     }
     return (
         <form id="searchbar" onSubmit={handleSubmission}>
             <input type="search" id="searchQuery" placeholder="Search for crypto here..." />
-            <IconButton color="primary" size="small" onClick={handleSubmission}>
+            <IconButton type="submit" color="primary" size="small">
                 <img src="/img/magnifier-icon.svg" alt="magnifier search" />
             </IconButton>
         </form>
