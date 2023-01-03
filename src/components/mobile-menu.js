@@ -17,7 +17,9 @@ function MobileMenu() {
         <img src="/img/mobile-menu-exit.svg" alt="close mobile menu"/>
         </IconButton>
         <SearchBar/>
+        <h3>Currency</h3>
         <FormSelect/>
+        <h3>Order by</h3>
         <RadioMenu/>
     </div>
   )
