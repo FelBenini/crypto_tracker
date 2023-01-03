@@ -5,8 +5,10 @@ import { useNavigate } from "react-router-dom";
 
 function Header() {
     function handleMobileMenu() {
-        document.getElementById('mobile-menu').style.transform = "translateX(0%)"
         document.getElementById('mobile-menu').style.display = "flex"
+        setTimeout(function () {
+            document.getElementById('mobile-menu').style.transform = "translateX(0%)";
+        }, 25);
     }
     return (
         <header>

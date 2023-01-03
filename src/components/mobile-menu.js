@@ -21,7 +21,7 @@ function MobileMenu() {
       <FormSelect />
       <h3>Order by</h3>
       <RadioMenu />
-      <span>
+      <span style={{display: "Flex", flexDirection: "row", justifyContent: "space-around", width: "80%"}}>
         <IconButton color="primary" size="medium" id="dark-switcher">
           <input hidden accept="image/*" />
           <img src="/img/theme-mode-dark.svg" alt="dark theme switcher" />
