@@ -1,20 +1,44 @@
-#### Install and run the development server
+# 💰 cryptoTracker
+
+A simple crypto currency tracker built with React, React-router, Material-UI and Axios.
+
+[Live-demo](https://crypto-tracker-fb.vercel.app/)
+
+## Getting started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+### Prerequisites
+
+You will need to have Node.js installed on your system.
+
+### Installing
+
+To install and run cryptoTracker, follow these steps:
+
+1. Clone the repository and install the dependencies:
 
 ```bash
+git clone https://github.com/FelBenini/crypto_tracker
+cd cryptoTracker
 npm install
+```
+
+2. Start the development server:
+
+```bash
 npm start
 ```
 
-This is a Crypto Currency tracker that display the price and price variation of more than 100 coins.
+The application should now be running at http://localhost:3000.
 
-Some features of this project are:
+## Built with
 
-# Change country's currency.
-# Dark mode.
-# View the price variation in different timestamps.
+- React - A JavaScript library for building user interfaces
+- Material-UI - A React UI framework
+- React Router - A routing library for React
+- Axios - A library for making HTTP requests
 
-This project was made with ReactJS, with some extra dependencies, those are:
+## Authors 
 
-# React router for handling multiple pages.
-# Axios for API management.
-# Material-UI for stylized components.
+- Felipe Benini - [GitHub](https://github.com/FelBenini)
