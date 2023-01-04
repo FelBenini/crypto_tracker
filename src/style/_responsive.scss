@@ -140,12 +140,14 @@
     #coins-display .coin-listed:nth-child(1),
     #coins-display .coin-listed:nth-child(2),
     #coins-display .coin-listed:nth-child(3) {
-        width: 97%;
+        width: 98%;
         height: 64px;
         justify-content: space-between;
         align-items: center;
         flex-direction: row;
         margin-bottom: -6px;
+        padding-left: 6px;
+        padding-right: 6px;
 
         & h4 {
             font-size: 16px;
