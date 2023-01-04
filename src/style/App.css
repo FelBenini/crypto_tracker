@@ -334,6 +334,19 @@ a {
   text-decoration: none;
 }
 
+#coin-page-title {
+  height: 100px;
+  display: flex;
+  width: 96%;
+  padding-left: 2%;
+  padding-right: 2%;
+  align-items: center;
+}
+#coin-page-title h1 {
+  letter-spacing: 6px;
+  color: #493951;
+}
+
 @media only screen and (min-width: 1110px) {
   #coins-display .coin-listed:nth-child(4) {
     width: 200px;

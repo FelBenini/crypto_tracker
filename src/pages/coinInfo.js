@@ -22,7 +22,9 @@ function CoinPage() {
     }, [id, currency])
   return (
     <div>
-        <h1>{id}</h1>
+        <span id="coin-page-title">
+        <h1>{id.toUpperCase()}</h1>
+        </span>
     </div>
   )
 }
