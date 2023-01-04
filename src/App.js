@@ -6,6 +6,7 @@ import SideMenu from './components/side-menu.js'
 import Homepage from './pages/homepage.js'
 import SearchPage from './pages/searchPage';
 import MobileMenu from './components/mobile-menu';
+import CoinPage from './pages/coinInfo';
 
 function App() {
   return (
@@ -16,22 +17,16 @@ function App() {
         <section id="body-section">
         <Routes>
           <Route path="" element={<Homepage/>}/>
-          <Route path="otherpage" element={<OtherPage/>}/>
           <Route path="search">
           <Route exact path=":query" element={<SearchPage/>}/>
+          </Route>
+          <Route path="coin">
+          <Route exact path=":id" element={<CoinPage/>}/>
           </Route>
         </Routes>
         </section>
       </BrowserRouter>
   );
-}
-
-function OtherPage() {
-  return (
-    <div>
-      Another page here
-    </div>
-  )
 }
 
 export default App;

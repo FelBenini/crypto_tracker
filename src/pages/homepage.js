@@ -4,6 +4,7 @@ import axios from 'axios';
 import { CurrencyState } from '../currencyContext.js'
 import Pagination from '@mui/material/Pagination';
 import { OrderState } from '../orderContext.js';
+import { Link } from 'react-router-dom';
 
 export function formattedNumber(num) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -16,6 +17,7 @@ function Homepage() {
         setPage(value);
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
+
     const { currency, currencyPrefix } = CurrencyState()
     const [cryptoCoins, setCryptoCoins] = useState([])
     const fetchCoins = async (bid, order, currentpage) => {
@@ -30,7 +32,7 @@ function Homepage() {
     const cryptoMap = cryptoCoins.map((coin) => {
         if (coin.price_change_percentage_24h > 0) {
             return (
-                <div className="coin-listed">
+                <Link to={`coin/${coin.name}`} className="coin-listed">
                     <span>
                         <img src={coin?.image} alt={coin} className="coin-image" />
                         <h4>{coin.name}</h4>
@@ -42,11 +44,11 @@ function Homepage() {
                         <p>Price:</p>
                         <h5>{currencyPrefix}{formattedNumber(coin.current_price.toFixed(2))}</h5>
                     </span>
-                </div>
+                </Link>
             )
         } else if (coin.price_change_percentage_24h < 0) {
             return (
-                <div className="coin-listed">
+                <Link to={`coin/${coin.name}`} className="coin-listed">
                     <span>
                         <img src={coin.image} alt={coin} className="coin-image" />
                         <h4>{coin.name}</h4>
@@ -58,7 +60,7 @@ function Homepage() {
                         <p>Price:</p>
                         <h5>{currencyPrefix}{formattedNumber(coin.current_price.toFixed(2))}</h5>
                     </span>
-                </div>
+                </Link>
             )
         }
     })
