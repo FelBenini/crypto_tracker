@@ -32,7 +32,7 @@ function Homepage() {
     const cryptoMap = cryptoCoins.map((coin) => {
         if (coin.price_change_percentage_24h > 0) {
             return (
-                <Link to={`coin/${coin.name}`} className="coin-listed">
+                <Link to={`coin/${coin.name.toLowerCase()}`} className="coin-listed">
                     <span>
                         <img src={coin?.image} alt={coin} className="coin-image" />
                         <h4>{coin.name}</h4>
@@ -48,7 +48,7 @@ function Homepage() {
             )
         } else if (coin.price_change_percentage_24h < 0) {
             return (
-                <Link to={`coin/${coin.name}`} className="coin-listed">
+                <Link to={`coin/${coin.name.toLowerCase()}`} className="coin-listed">
                     <span>
                         <img src={coin.image} alt={coin} className="coin-image" />
                         <h4>{coin.name}</h4>
