@@ -3,6 +3,7 @@ import { CurrencyState } from '../currencyContext';
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import { formattedNumber } from './homepage';
+import { Link } from 'react-router-dom';
 
 function SearchPage() {
     const { query } = useParams()
@@ -17,9 +18,9 @@ function SearchPage() {
     const mappedObjects = filteredObjects.map(coin => {
         if (coin.price_change_percentage_24h > 0) {
             return (
-                <div className="coin-listed">
+                <Link to={`/coin/${coin.name.toLowerCase()}`} className="coin-listed">
                     <span>
-                        <img src={coin?.image} alt={coin} className="coin-image" />
+                        <img src={coin.image} alt={coin} className="coin-image" />
                         <h4>{coin.name}</h4>
                     </span>
                     <span className="variation-24h">
@@ -29,11 +30,11 @@ function SearchPage() {
                         <p>Price:</p>
                         <h5>{currencyPrefix}{formattedNumber(coin.current_price.toFixed(2))}</h5>
                     </span>
-                </div>
+                </Link>
             )
         } else if (coin.price_change_percentage_24h < 0) {
             return (
-                <div className="coin-listed">
+                <Link to={`/coin/${coin.name.toLowerCase()}`} className="coin-listed">
                     <span>
                         <img src={coin.image} alt={coin} className="coin-image" />
                         <h4>{coin.name}</h4>
@@ -45,7 +46,7 @@ function SearchPage() {
                         <p>Price:</p>
                         <h5>{currencyPrefix}{formattedNumber(coin.current_price.toFixed(2))}</h5>
                     </span>
-                </div>
+                </Link>
             )
         }
         ;

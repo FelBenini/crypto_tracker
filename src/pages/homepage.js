@@ -34,7 +34,7 @@ function Homepage() {
             return (
                 <Link to={`coin/${coin.name.toLowerCase()}`} className="coin-listed">
                     <span>
-                        <img src={coin?.image} alt={coin} className="coin-image" />
+                        <img src={coin.image} alt={coin} className="coin-image" />
                         <h4>{coin.name}</h4>
                     </span>
                     <span className="variation-24h">
