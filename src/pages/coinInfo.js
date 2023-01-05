@@ -25,39 +25,6 @@ ChartJS.register(
   Legend
 );
 
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: 'top',
-    },
-    title: {
-      display: true,
-      text: 'Chart.js Line Chart',
-    },
-  },
-};
-
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Dataset 1',
-      data: [1, 2, 3, 4, 5],
-      borderColor: 'rgb(255, 99, 132)',
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-    },
-    {
-      label: 'Dataset 2',
-      data: [5, 6, 7, 8, 10],
-      borderColor: 'rgb(53, 162, 235)',
-      backgroundColor: 'rgba(53, 162, 235, 0.5)',
-    },
-  ],
-};
-
 function CoinPage() {
   const { currency } = CurrencyState()
   const { id } = useParams()
@@ -74,12 +41,40 @@ function CoinPage() {
     getData(id, currency)
   }, [id, currency])
 
+  const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      display: false,
+    },
+    title: {
+      display: true,
+      text: `Variation in the last 30 days in ${currency}`,
+    },
+  },
+};
+
+const labels = chartData.map((component) => component[0]);
+
+const data = {
+  labels,
+  datasets: [
+    {
+      data: chartData.map((component) => component[1]),
+      borderColor: 'rgb(255, 99, 132)',
+      backgroundColor: 'rgba(255, 99, 132, 0.5)',
+    }
+  ],
+};
+
   return (
     <div>
       <span id="coin-page-title">
         <h1>{id.toUpperCase()}</h1>
       </span>
+      <div className="chartWrapper" style={{width: "80%"}}>
       <Line options={options} data={data}/>
+      </div>
     </div>
   )
 }
