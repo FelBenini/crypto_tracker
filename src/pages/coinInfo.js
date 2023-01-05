@@ -52,9 +52,16 @@ function CoinPage() {
       text: `Variation in the last 30 days in ${currency}`,
     },
   },
+  elements: {
+    point: {
+      radius: 0,
+    },
+  },
 };
 
-const labels = chartData.map((component) => component[0]);
+const labels = chartData.map((component) => { let date = new Date(component[0])
+return (`${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`)
+});
 
 const data = {
   labels,
@@ -62,6 +69,7 @@ const data = {
     {
       data: chartData.map((component) => component[1]),
       borderColor: 'rgb(255, 99, 132)',
+      borderWidth: 1,
       backgroundColor: 'rgba(255, 99, 132, 0.5)',
     }
   ],
