@@ -152,6 +152,9 @@ h1 {
   padding-left: 32px;
   padding-right: 32px;
   border-radius: 12px;
+      &:hover {
+      background-color: #f0efef;
+    }
   & .variation-24h img {
     margin-right: 4px;
   }
@@ -255,6 +258,9 @@ h1 {
     padding-right: 4%;
     border-radius: 12px;
     color: #0d0d0e;
+    &:hover {
+      background-color: #f0efef;
+    }
     & .variation-24h img {
       margin-right: 4px;
     }
@@ -320,17 +326,29 @@ a {
   text-decoration: none;
 }
 
-#coin-page-title {
-  height: 100px;
+.coin-page-info {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  & #coin-page-title {
+  height: 72px;
   display: flex;
   width: 96%;
   padding-left: 2%;
   padding-right: 2%;
   align-items: center;
   & h1 {
-    letter-spacing: 6px;
     color: #493951
   }
+}
+}
+
+.chartWrapper {
+  width: 92%;
+  display: flex;
+  justify-content: center
 }
 
 @import "./_responsive.scss";

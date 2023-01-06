@@ -5,6 +5,7 @@ import { CurrencyState } from '../currencyContext.js'
 import Pagination from '@mui/material/Pagination';
 import { OrderState } from '../orderContext.js';
 import { Link } from 'react-router-dom';
+import { CircularProgress } from '@mui/material';
 
 export function formattedNumber(num) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -32,7 +33,7 @@ function Homepage() {
     const cryptoMap = cryptoCoins.map((coin) => {
         if (coin.price_change_percentage_24h > 0) {
             return (
-                <Link to={`coin/${coin.name.toLowerCase()}`} className="coin-listed">
+                <Link to={`coin/${coin.id.toLowerCase()}`} className="coin-listed">
                     <span>
                         <img src={coin.image} alt={coin} className="coin-image" />
                         <h4>{coin.name}</h4>
@@ -48,7 +49,7 @@ function Homepage() {
             )
         } else if (coin.price_change_percentage_24h < 0) {
             return (
-                <Link to={`coin/${coin.name.toLowerCase()}`} className="coin-listed">
+                <Link to={`coin/${coin.id.toLowerCase()}`} className="coin-listed">
                     <span>
                         <img src={coin.image} alt={coin} className="coin-image" />
                         <h4>{coin.name}</h4>

@@ -26,12 +26,14 @@ ChartJS.register(
 );
 
 function CoinPage() {
-  const { currency } = CurrencyState()
+  const { currency, currencyPrefix } = CurrencyState()
+  const [coinInfo, setCoinInfo] = useState()
   const { id } = useParams()
   const [chartData, setChartData] = useState([])
 
   const getData = async (coin_id, currency_) => {
     const { data } = await axios.get(`https://api.coingecko.com/api/v3/coins/${coin_id}/market_chart?vs_currency=${currency_}&days=30`);
+    const { coin_info } = await axios.get()
 
     setChartData(data.prices)
     console.log(data.prices)
@@ -49,13 +51,13 @@ function CoinPage() {
     },
     title: {
       display: true,
-      text: `Variation in the last 30 days in ${currency}`,
+      text: `Price variation in the last 30 days in ${currency.toUpperCase()}`,
     },
   },
   elements: {
     point: {
       radius: 0,
-    },
+    }
   },
 };
 
@@ -68,19 +70,19 @@ const data = {
   datasets: [
     {
       data: chartData.map((component) => component[1]),
-      borderColor: 'rgb(255, 99, 132)',
+      borderColor: '#560bad',
       borderWidth: 1,
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      backgroundColor: '#560bad',
     }
   ],
 };
 
   return (
-    <div>
+    <div className='coin-page-info'>
       <span id="coin-page-title">
         <h1>{id.toUpperCase()}</h1>
       </span>
-      <div className="chartWrapper" style={{width: "80%"}}>
+      <div className="chartWrapper">
       <Line options={options} data={data}/>
       </div>
     </div>
