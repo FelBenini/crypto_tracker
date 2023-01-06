@@ -7,6 +7,7 @@ import {
   LineElement,
   Title,
   Tooltip,
+  Filler,
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
@@ -22,6 +23,7 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
+  Filler,
   Legend
 );
 
@@ -68,10 +70,17 @@ const data = {
   labels,
   datasets: [
     {
+      fill: "start",
       data: chartData.map((component) => component[1]),
       borderColor: '#560bad',
       borderWidth: 1,
-      backgroundColor: '#560bad',
+      backgroundColor: (context) => {
+        const ctx = context.chart.ctx;
+        const gradient = ctx.createLinearGradient(0, 0, 0, 500);
+        gradient.addColorStop(0, "rgba(86,11,173,0.5)");
+        gradient.addColorStop(1, "rgba(86,11,173,0)");
+        return gradient;
+      },
     }
   ],
 };
