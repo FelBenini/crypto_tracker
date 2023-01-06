@@ -25,19 +25,18 @@ ChartJS.register(
   Legend
 );
 
-function CoinPage() {
-  const { currency, currencyPrefix } = CurrencyState()
-  const [coinInfo, setCoinInfo] = useState()
+function CoinChart() {
+  const { currency } = CurrencyState()
   const { id } = useParams()
   const [chartData, setChartData] = useState([])
 
   const getData = async (coin_id, currency_) => {
     const { data } = await axios.get(`https://api.coingecko.com/api/v3/coins/${coin_id}/market_chart?vs_currency=${currency_}&days=30`);
-    const { coin_info } = await axios.get()
 
     setChartData(data.prices)
-    console.log(data.prices)
   }
+
+  
 
   useEffect(() => {
     getData(id, currency)
@@ -78,15 +77,10 @@ const data = {
 };
 
   return (
-    <div className='coin-page-info'>
-      <span id="coin-page-title">
-        <h1>{id.toUpperCase()}</h1>
-      </span>
       <div className="chartWrapper">
       <Line options={options} data={data}/>
       </div>
-    </div>
   )
 }
 
-export default CoinPage
+export default CoinChart

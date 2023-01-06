@@ -356,6 +356,9 @@ a {
   padding-right: 2%;
   align-items: center;
 }
+.coin-page-info #coin-page-title img {
+  margin-right: 12px;
+}
 .coin-page-info #coin-page-title h1 {
   color: #493951;
 }

@@ -6,7 +6,7 @@ import SideMenu from './components/side-menu.js'
 import Homepage from './pages/homepage.js'
 import SearchPage from './pages/searchPage';
 import MobileMenu from './components/mobile-menu';
-import CoinPage from './pages/coinInfo';
+import CoinPage from './pages/coinpage';
 
 function App() {
   return (

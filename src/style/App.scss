@@ -339,6 +339,9 @@ a {
   padding-left: 2%;
   padding-right: 2%;
   align-items: center;
+  & img {
+    margin-right: 12px;
+  }
   & h1 {
     color: #493951
   }
