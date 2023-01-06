@@ -40,7 +40,7 @@ header img {
   height: fit-content;
 }
 header #searchbar {
-  width: calc(30% + 70px);
+  width: calc(40% + 70px);
   padding: 0px 16px;
   height: 44px;
   display: flex;
