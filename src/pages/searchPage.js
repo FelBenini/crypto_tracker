@@ -3,17 +3,20 @@ import { CurrencyState } from '../currencyContext';
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import { formattedNumber } from './homepage';
+import { CircularProgress } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 function SearchPage() {
     const { query } = useParams()
     const { currency, currencyPrefix } = CurrencyState()
+    const [loading, setLoading] = useState(true)
     const [cryptoCoins, setCryptoCoins] = useState([])
     const filteredObjects = cryptoCoins.filter(item => item.name.toLowerCase().indexOf(query.toLowerCase()) === 0);
     const fetchCoins = async (bid) => {
         const { data } = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${bid}&order=market_cap_desc&per_page=1250&page=1&sparkline=false`)
 
         setCryptoCoins(data)
+        setLoading(false)
     }
     const mappedObjects = filteredObjects.map(coin => {
         if (coin.price_change_percentage_24h > 0) {
@@ -58,20 +61,28 @@ function SearchPage() {
         marginTop: '12px',
         textAlign: 'center'
     }
-    return (
-        <section>
-            <h2 style={headerStyle}>Showing results for {query}</h2>
-            <div id="search-section">
-                <div className="coin-label">
-                    <span>Name</span>
-                    <span className="variation-24h">Variation 24h</span>
-                    <span className='price-crypto'>Price</span>
+    if (!loading) {
+        return (
+            <section>
+                <h2 style={headerStyle}>Showing results for {query}</h2>
+                <div id="search-section">
+                    <div className="coin-label">
+                        <span>Name</span>
+                        <span className="variation-24h">Variation 24h</span>
+                        <span className='price-crypto'>Price</span>
+                    </div>
+                    {mappedObjects}
                 </div>
-                {mappedObjects}
-            </div>
-        </section>
+            </section>
+        )
+    } else if(loading) {
+        return (
+                    <div className='coin-page-loading'>
+            <CircularProgress />
+        </div>
+        )
+    }
 
-    )
 }
 
 export default SearchPage
