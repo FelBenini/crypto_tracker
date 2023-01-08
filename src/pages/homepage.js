@@ -12,6 +12,7 @@ export function formattedNumber(num) {
 }
 
 function Homepage() {
+    const [loading, setLoading] = useState(true)
     const { order } = OrderState();
     const [page, setPage] = useState(1);
     const handlePageChange = (event, value) => {
@@ -25,6 +26,7 @@ function Homepage() {
         const { data } = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${bid}&order=${order}&per_page=25&page=${currentpage}&sparkline=false`)
 
         setCryptoCoins(data)
+        setLoading(false)
     }
     useEffect(() => {
         fetchCoins(currency, order, page)
@@ -65,21 +67,30 @@ function Homepage() {
             )
         }
     })
-    return (
-        <div>
-            <div className="coin-label">
-                <span>Name</span>
-                <span className="variation-24h">Variation 24h</span>
-                <span className='price-crypto'>Price</span>
-            </div>
-            <div id="coins-display">
-                {cryptoMap}
-                <div id="pagination">
-                    <Pagination count={50} page={page} onChange={handlePageChange} shape="rounded" />
+    if (!loading) {
+        return (
+            <div>
+                <div className="coin-label">
+                    <span>Name</span>
+                    <span className="variation-24h">Variation 24h</span>
+                    <span className='price-crypto'>Price</span>
+                </div>
+                <div id="coins-display">
+                    {cryptoMap}
+                    <div id="pagination">
+                        <Pagination count={50} page={page} onChange={handlePageChange} shape="rounded" />
+                    </div>
                 </div>
             </div>
+        )
+    } else if (loading) {
+        return (
+        <div className='coin-page-loading'>
+            <CircularProgress />
         </div>
-    )
+        )
+    }
+
 }
 
 export default Homepage
