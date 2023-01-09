@@ -38,6 +38,7 @@ The application should now be running at http://localhost:3000.
 - Material-UI - A React UI framework
 - React Router - A routing library for React
 - Axios - A library for making HTTP requests
+- React-chart-js - A library for displaying data as charts
 
 ## Authors 
 
