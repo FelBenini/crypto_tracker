@@ -12,6 +12,8 @@ const CurrencyContext = ({ children }) => {
           setCurrencyPrefix("R$");}
         else if (currency === "eur") {
           setCurrencyPrefix("€");}
+        else if (currency === "gbp") {
+          setCurrencyPrefix("£");}
     }, [currency])
   return (
     <Currency.Provider value={{ currency, setCurrency, currencyPrefix}}>
