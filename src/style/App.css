@@ -393,6 +393,10 @@ a {
     align-items: flex-start;
     background-image: linear-gradient(to bottom right, #cd1499, #560bad);
     box-shadow: rgba(14, 13, 13, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    transition: filter 0.2s ease;
+  }
+  #coins-display .coin-listed:nth-child(4):hover {
+    filter: brightness(1.1);
   }
   #coins-display .coin-listed:nth-child(4) span {
     height: 36px;
@@ -548,6 +552,12 @@ header #dark-switcher {
     align-items: flex-start;
     background-image: linear-gradient(to bottom right, #cd1499, #560bad);
     box-shadow: rgba(14, 13, 13, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    transition: filter 0.2s ease;
+  }
+  #coins-display .coin-listed:nth-child(1):hover,
+#coins-display .coin-listed:nth-child(2):hover,
+#coins-display .coin-listed:nth-child(3):hover {
+    filter: brightness(1.1);
   }
   #coins-display .coin-listed:nth-child(1) span,
 #coins-display .coin-listed:nth-child(2) span,
