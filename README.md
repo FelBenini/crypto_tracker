@@ -39,6 +39,7 @@ The application should now be running at http://localhost:3000.
 - React Router - A routing library for React
 - Axios - A library for making HTTP requests
 - React-chart-js - A library for displaying data as charts
+- Coingecko's API - A REST API that displays crypto information
 
 ## Authors 
 
