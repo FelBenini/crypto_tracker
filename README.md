@@ -20,7 +20,11 @@ To install and run cryptoTracker, follow these steps:
 
 ```bash
 git clone https://github.com/FelBenini/crypto_tracker.git
+```
+```bash
 cd cryptoTracker
+```
+```bash
 npm install
 ```
 
