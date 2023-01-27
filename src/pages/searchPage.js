@@ -11,14 +11,13 @@ function SearchPage() {
     const { currency, currencyPrefix } = CurrencyState()
     const [loading, setLoading] = useState(true)
     const [cryptoCoins, setCryptoCoins] = useState([])
-    const filteredObjects = cryptoCoins.filter(item => item.name.toLowerCase().indexOf(query.toLowerCase()) === 0);
     const fetchCoins = async (bid) => {
         const { data } = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${bid}&order=market_cap_desc&per_page=1250&page=1&sparkline=false`)
 
-        setCryptoCoins(data)
+        setCryptoCoins(data.filter(item => item.name.toLowerCase().indexOf(query.toLowerCase()) === 0))
         setLoading(false)
     }
-    const mappedObjects = filteredObjects.map(coin => {
+    const mappedObjects = cryptoCoins.map(coin => {
         if (coin.price_change_percentage_24h > 0) {
             return (
                 <Link to={`/coin/${coin.name.toLowerCase()}`} className="coin-listed">
@@ -31,7 +30,7 @@ function SearchPage() {
                     </span>
                     <span className="price-crypto">
                         <p>Price:</p>
-                        <h5>{currencyPrefix}{formattedNumber(coin.current_price.toFixed(2))}</h5>
+                        <h5>{currencyPrefix}{formattedNumber(coin.current_price)}</h5>
                     </span>
                 </Link>
             )
@@ -47,7 +46,7 @@ function SearchPage() {
                     </span>
                     <span className="price-crypto">
                         <p>Price:</p>
-                        <h5>{currencyPrefix}{formattedNumber(coin.current_price.toFixed(2))}</h5>
+                        <h5>{currencyPrefix}{formattedNumber(coin.current_price)}</h5>
                     </span>
                 </Link>
             )
