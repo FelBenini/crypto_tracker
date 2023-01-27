@@ -8,7 +8,11 @@ import { Link } from 'react-router-dom';
 import { CircularProgress } from '@mui/material';
 
 export function formattedNumber(num) {
-    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    if(num < 0.01) {
+        return num.toString()
+    } else {
+        return num.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
 }
 
 function Homepage() {
@@ -45,7 +49,7 @@ function Homepage() {
                     </span>
                     <span className="price-crypto">
                         <p>Price:</p>
-                        <h5>{currencyPrefix}{formattedNumber(coin.current_price.toFixed(2))}</h5>
+                        <h5>{currencyPrefix}{formattedNumber(coin.current_price)}</h5>
                     </span>
                 </Link>
             )
@@ -61,7 +65,7 @@ function Homepage() {
                     </span>
                     <span className="price-crypto">
                         <p>Price:</p>
-                        <h5>{currencyPrefix}{formattedNumber(coin.current_price.toFixed(2))}</h5>
+                        <h5>{currencyPrefix}{formattedNumber(coin.current_price)}</h5>
                     </span>
                 </Link>
             )
