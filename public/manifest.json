@@ -8,8 +8,8 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
-      "type": "image/png",
+      "src": "img/logo-header.svg",
+      "type": "image/svg",
       "sizes": "192x192"
     },
     {

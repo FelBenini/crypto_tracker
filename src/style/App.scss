@@ -366,4 +366,19 @@ a {
   align-items: center;
 }
 
+.coin-not-found {
+  flex-direction: column;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  & {
+    h1 {
+      font-size: 37px;
+      color: #0d0d0ecb;
+    }
+  }
+}
+
 @import "./_responsive.scss";
