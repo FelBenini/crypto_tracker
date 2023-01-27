@@ -19,7 +19,7 @@ To install and run cryptoTracker, follow these steps:
 1. Clone the repository and install the dependencies:
 
 ```bash
-git clone https://github.com/FelBenini/crypto_tracker
+git clone https://github.com/FelBenini/crypto_tracker.git
 cd cryptoTracker
 npm install
 ```
