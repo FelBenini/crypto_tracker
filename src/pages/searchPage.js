@@ -5,16 +5,18 @@ import axios from 'axios';
 import { formattedNumber } from './homepage';
 import { CircularProgress } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { OrderState } from '../orderContext';
 
 function SearchPage() {
     const { query } = useParams()
     const { currency, currencyPrefix } = CurrencyState()
     const [loading, setLoading] = useState(true)
+    const { order } = OrderState();
     const [cryptoCoins, setCryptoCoins] = useState([])
-    const fetchCoins = async (bid) => {
-        const { data } = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${bid}&order=market_cap_desc&per_page=1250&page=1&sparkline=false`)
+    const fetchCoins = async (bid, order, filter) => {
+        const { data } = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${bid}&order=${order}&per_page=1250&page=1&sparkline=false`)
 
-        setCryptoCoins(data.filter(item => item.name.toLowerCase().indexOf(query.toLowerCase()) === 0))
+        setCryptoCoins(data.filter(item => item.name.toLowerCase().indexOf(filter.toLowerCase()) === 0))
         setLoading(false)
     }
     const mappedObjects = cryptoCoins.map(coin => {
@@ -54,8 +56,8 @@ function SearchPage() {
         ;
     });
     useEffect(() => {
-        fetchCoins(currency)
-    }, [currency])
+        fetchCoins(currency, order, query)
+    }, [currency, order, query])
     const headerStyle = {
         marginTop: '12px',
         textAlign: 'center'
