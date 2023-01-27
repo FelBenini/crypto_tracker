@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { CurrencyState } from '../currencyContext';
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
-import { formattedNumber } from './homepage';
+import CoinDiv from '../components/coinDiv';
 import { CircularProgress } from '@mui/material';
-import { Link } from 'react-router-dom';
 import { OrderState } from '../orderContext';
 
 function SearchPage() {
     const { query } = useParams()
-    const { currency, currencyPrefix } = CurrencyState()
+    const { currency } = CurrencyState()
     const [loading, setLoading] = useState(true)
     const { order } = OrderState();
     const [cryptoCoins, setCryptoCoins] = useState([])
@@ -20,40 +19,7 @@ function SearchPage() {
         setLoading(false)
     }
     const mappedObjects = cryptoCoins.map(coin => {
-        if (coin.price_change_percentage_24h > 0) {
-            return (
-                <Link to={`/coin/${coin.name.toLowerCase()}`} className="coin-listed">
-                    <span>
-                        <img src={coin.image} alt={coin} className="coin-image" />
-                        <h4>{coin.name}</h4>
-                    </span>
-                    <span className="variation-24h">
-                        <img src="/img/variation-positive.svg" alt="trending down" /><h5>{coin.price_change_percentage_24h.toFixed(2) + "%"}</h5>
-                    </span>
-                    <span className="price-crypto">
-                        <p>Price:</p>
-                        <h5>{currencyPrefix}{formattedNumber(coin.current_price)}</h5>
-                    </span>
-                </Link>
-            )
-        } else if (coin.price_change_percentage_24h < 0) {
-            return (
-                <Link to={`/coin/${coin.name.toLowerCase()}`} className="coin-listed">
-                    <span>
-                        <img src={coin.image} alt={coin} className="coin-image" />
-                        <h4>{coin.name}</h4>
-                    </span>
-                    <span className="variation-24h">
-                        <img src="/img/variation-negative.svg" alt="trending down" /><h5>{coin.price_change_percentage_24h.toFixed(2) + "%"}</h5>
-                    </span>
-                    <span className="price-crypto">
-                        <p>Price:</p>
-                        <h5>{currencyPrefix}{formattedNumber(coin.current_price)}</h5>
-                    </span>
-                </Link>
-            )
-        }
-        ;
+        return <CoinDiv id={coin.id} key={coin.id} name={coin.name} className="coin-listed" image={coin.image} current_price={coin.current_price} price_change_percentage_24h={coin.price_change_percentage_24h}/>
     });
     useEffect(() => {
         fetchCoins(currency, order, query)
