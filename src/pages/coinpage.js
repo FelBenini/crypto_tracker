@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { CircularProgress } from '@mui/material'
 import { CurrencyState } from '../currencyContext'
-import { formattedNumber } from './homepage'
 
 const Coinpage = () => {
   const { currency, currencyPrefix } = CurrencyState()
@@ -38,7 +37,7 @@ const Coinpage = () => {
             <img src={coinInfo.image?.small} alt="coin logo" />
             <h1>{coinInfo.name}</h1>
           <span id="coin-price">
-            <h3>Current price: </h3><h5>{currencyPrefix + formattedNumber(coinInfo.market_data.current_price[currency])}</h5></span>
+            <h3>Current price: </h3><h5>{currencyPrefix + coinInfo.market_data.current_price[currency]}</h5></span>
         </span>
         <CoinChart />
       </div>
