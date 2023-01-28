@@ -24,6 +24,7 @@ const Coinpage = () => {
     setCoinInfo(data)
     console.log(data)
     setLoading(false)
+    setNotFound(false)
   }
 
   useEffect(() => {

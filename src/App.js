@@ -7,6 +7,7 @@ import Homepage from './pages/homepage.js'
 import SearchPage from './pages/searchPage';
 import MobileMenu from './components/mobile-menu';
 import CoinPage from './pages/coinpage';
+import NotFound from './pages/notFound';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="coin">
           <Route exact path=":id" element={<CoinPage/>}/>
           </Route>
+          <Route path="*" element={<NotFound/>}/>
         </Routes>
         </section>
       </BrowserRouter>

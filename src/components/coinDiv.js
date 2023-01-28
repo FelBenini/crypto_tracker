@@ -7,7 +7,7 @@ function propsDiv(props) {
     const {currencyPrefix} = CurrencyState()
     if (props.price_change_percentage_24h > 0) {
         return (
-            <Link to={`props/${props.id.toLowerCase()}`} className={props.className}>
+            <Link to={`coin/${props.id.toLowerCase()}`} className={props.className}>
                 <span>
                     <img src={props.image} alt={props.name} className="coin-image" />
                     <h4>{props.name}</h4>
@@ -23,7 +23,7 @@ function propsDiv(props) {
         )
     } else if (props.price_change_percentage_24h < 0) {
         return (
-            <Link to={`props/${props.id.toLowerCase()}`} className={props.className}>
+            <Link to={`coin/${props.id.toLowerCase()}`} className={props.className}>
                 <span>
                     <img src={props.image} alt={props.name} className="coin-image" />
                     <h4>{props.name}</h4>
