@@ -152,6 +152,7 @@ h1 {
   padding-left: 32px;
   padding-right: 32px;
   border-radius: 12px;
+  border: 1px solid #00000017;
       &:hover {
       background-color: #f0efef;
     }
@@ -192,6 +193,7 @@ h1 {
   background-image: linear-gradient(to bottom right, #cd1499, #560bad);
   box-shadow: rgba(14, 13, 13, 0.16) 0px 3px 6px,
     rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border: none;
   & span {
     height: 36px;
     width: 100%;
