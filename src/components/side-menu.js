@@ -26,6 +26,7 @@ function SideMenu() {
 
 export function FormSelect() {
     const { currency, setCurrency } = CurrencyState();
+    const {setLoading} = OrderState()
     return (
         <div>
             <FormControl color="secondary" sx={{ m: 1, minWidth: 120 }}>
@@ -33,7 +34,8 @@ export function FormSelect() {
                     value={currency}
                     id="demo-simple-select"
                     labelId="demo-simple-select-label"
-                    onChange={(e) => setCurrency(e.target.value)}>
+                    onChange={(e) => {setCurrency(e.target.value)
+                    setLoading(true)}}>
                     <MenuItem value={"usd"}>USD</MenuItem>
                     <MenuItem value={"brl"}>BRL</MenuItem>
                     <MenuItem value={"eur"}>EUR</MenuItem>
@@ -45,14 +47,15 @@ export function FormSelect() {
 }
 
 export function RadioMenu() {
-    const { order, setOrder } = OrderState();
+    const { order, setOrder, setLoading } = OrderState();
     return (
         <FormControl>
             <RadioGroup
                 aria-labelledby="demo-radio-buttons-group-label"
                 name="radio-buttons-group"
                 defaultValue={order}
-                onChange={(e) => setOrder(e.target.value)}
+                onChange={(e) => {setOrder(e.target.value)
+                setLoading(true)}}
             >
                 <FormControlLabel value="market_cap_desc" control={<Radio />} label="Trending coins" />
                 <FormControlLabel value="price_desc" control={<Radio />} label="Highest price" />

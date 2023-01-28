@@ -16,8 +16,7 @@ export function formattedNumber(num) {
 }
 
 function Homepage() {
-    const [loading, setLoading] = useState(true)
-    const { order } = OrderState();
+    const { order, loading, setLoading } = OrderState();
     const [page, setPage] = useState(1);
     const handlePageChange = (event, value) => {
         setPage(value);
@@ -33,7 +32,7 @@ function Homepage() {
         setLoading(false)
     }
     useEffect(() => {
-        fetchCoins(currency, order, page)
+        fetchCoins(currency, order, page) // eslint-disable-next-line
     }, [currency, order, page])
 
     const cryptoMap = cryptoCoins.map((coin) => {

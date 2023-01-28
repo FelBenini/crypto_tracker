@@ -9,8 +9,7 @@ import { OrderState } from '../orderContext';
 function SearchPage() {
     const { query } = useParams()
     const { currency } = CurrencyState()
-    const [loading, setLoading] = useState(true)
-    const { order } = OrderState();
+    const { order, loading, setLoading } = OrderState();
     const [cryptoCoins, setCryptoCoins] = useState([])
     const fetchCoins = async (bid, order, filter) => {
         const { data } = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${bid}&order=${order}&per_page=1250&page=1&sparkline=false`)
@@ -23,6 +22,7 @@ function SearchPage() {
     });
     useEffect(() => {
         fetchCoins(currency, order, query)
+        // eslint-disable-next-line
     }, [currency, order, query])
     const headerStyle = {
         marginTop: '12px',
