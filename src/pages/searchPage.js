@@ -17,9 +17,15 @@ function SearchPage() {
         setCryptoCoins(data.filter(item => item.name.toLowerCase().indexOf(filter.toLowerCase()) === 0))
         setLoading(false)
     }
-    const mappedObjects = cryptoCoins.map(coin => {
-        return <CoinDiv id={coin.id} key={coin.id} name={coin.name} className="coin-listed" image={coin.image} current_price={coin.current_price} price_change_percentage_24h={coin.price_change_percentage_24h}/>
-    });
+
+    const mappedObjects = (array) => {
+        if (array.length === 0) {
+            return ( <h3>No crypto found based on your search</h3>)
+        } else {
+            return (array.map(coin => {
+                return <CoinDiv id={coin.id} key={coin.id} name={coin.name} className="coin-listed" image={coin.image} current_price={coin.current_price} price_change_percentage_24h={coin.price_change_percentage_24h}/>
+    }))}};
+
     useEffect(() => {
         fetchCoins(currency, order, query)
         // eslint-disable-next-line
@@ -38,7 +44,7 @@ function SearchPage() {
                         <span className="variation-24h">Variation 24h</span>
                         <span className='price-crypto'>Price</span>
                     </div>
-                    {mappedObjects}
+                    {mappedObjects(cryptoCoins)}
                 </div>
             </section>
         )
